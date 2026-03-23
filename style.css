@@ -206,6 +206,10 @@ button.btn:hover {
 .intro-text {
   opacity: 0;
   animation: fadeInOut 2s ease-in-out forwards;
+  text-align: center;
+  width: 90%;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 .text-1 { animation-delay: 0s; }
