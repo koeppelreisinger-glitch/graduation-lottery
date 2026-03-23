@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>毕业季抽奖</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="title-card">
+      <h1>毕业季抽奖</h1>
+      <p>青春不散场，好礼送给你</p>
+    </header>
+
+    <section id="adminSection" class="card hidden">
+      <h2>奖品配置（管理员模式）</h2>
+      <form id="prizeForm" class="form-grid">
+        <div class="field">
+          <label>奖品名称</label>
+          <input type="text" id="prizeName" placeholder="输入奖品名称" required />
+        </div>
+        <div class="field">
+          <label>数量</label>
+          <input type="number" id="prizeQty" min="1" value="1" required />
+        </div>
+        <div class="field">
+          <label>图片（可选）</label>
+          <input type="file" id="prizeImage" accept="image/*" />
+        </div>
+        <div class="field full">
+          <button type="submit" class="btn primary">添加奖品</button>
+        </div>
+      </form>
+
+      <div class="control-row">
+        <button id="generateShareLink" class="btn accent">生成分享链接</button>
+        <input type="text" id="shareLink" readonly placeholder="分享链接会在这里生成" />
+      </div>
+
+      <h3>当前奖品列表</h3>
+      <div id="prizeList" class="list-grid"></div>
+    </section>
+
+    <section id="lotterySection" class="card hidden">
+      <h2>抽奖模式</h2>
+      <p>点击开始抽奖，试试你的运气!</p>
+      <div class="wheel-container">
+        <div id="wheel" class="wheel">
+          <div class="wheel-center"></div>
+        </div>
+      </div>
+      <button id="startDraw" class="btn primary large">开始抽奖</button>
+      <p id="inventoryTip" class="tip"></p>
+      <div id="resultCard" class="result-card hidden">
+        <h3>恭喜中奖！</h3>
+        <img id="resultImage" src="" alt="中奖图片" />
+        <p id="resultName"></p>
+      </div>
+    </section>
+  </div>
+
+  <div id="overlay" class="overlay hidden"></div>
+
+  <audio id="cheerAudio" src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEA..."></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
