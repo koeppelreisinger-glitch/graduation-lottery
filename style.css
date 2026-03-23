@@ -184,3 +184,225 @@ button.btn:hover {
   .control-row { grid-template-columns: 1fr; }
   .wheel-container { width: 200px; height: 200px; }
 }
+
+/* 过场动画样式 */
+.intro-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.intro-text {
+  opacity: 0;
+  animation: fadeInOut 2s ease-in-out forwards;
+}
+
+.intro-text:nth-child(1) { animation-delay: 0s; }
+.intro-text:nth-child(2) { animation-delay: 3s; }
+.intro-text:nth-child(3) { animation-delay: 6s; }
+.intro-text:nth-child(4) { animation-delay: 9s; }
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+.intro-animation::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background: white;
+  animation: progressBar 12s linear forwards;
+}
+
+@keyframes progressBar {
+  to { width: 200px; }
+}
+
+/* 过场背景莫兰迪彩色渐变 */
+.intro-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #c2bfb5 0%, #a89f98 25%, #b9b2aa 50%, #dbd9d5 75%, #c6bbb6 100%);
+  background-size: 200% 200%;
+  animation: hueShift 15s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  color: #38312b;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.intro-animation::before {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 236, 221, 0.35), transparent 55%);
+  top: 10%;
+  left: 10%;
+  filter: blur(40px);
+  z-index: 1;
+}
+
+.intro-animation::after {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(170, 197, 177, 0.4), transparent 60%);
+  top: 60%;
+  right: 5%;
+  filter: blur(35px);
+  z-index: 1;
+}
+
+.vector-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.85) brightness(0.8) blur(1px);
+  opacity: 0.23;
+  z-index: 0;
+}
+
+.intro-text,
+.petal,
+.flower,
+.tree,
+.wreath {
+  z-index: 2;
+}
+
+.wreath {
+  position: absolute;
+  width: 220px;
+  height: auto;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.75);
+  animation: wreathScale 6s ease-in-out infinite alternate;
+  opacity: 0.9;
+}
+
+.tree {
+  position: absolute;
+  width: 260px;
+  height: auto;
+  bottom: 0;
+  animation: treeSway 5s ease-in-out infinite;
+}
+
+.tree1 { left: 10%; }
+.tree2 { right: 10%; transform: scaleX(-1); }
+
+@keyframes wreathScale {
+  0% { transform: translateX(-50%) scale(0.7); }
+  50% { transform: translateX(-50%) scale(0.78); }
+  100% { transform: translateX(-50%) scale(0.72); }
+}
+
+@keyframes treeSway {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(0) rotate(-2deg); }
+}
+
+@keyframes hueShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* 春日元素样式 */
+.flower {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #f1c0d5 50%, transparent 50%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.flower::before, .flower::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #ff69b4 50%, transparent 50%);
+  border-radius: 50%;
+}
+
+.flower::before {
+  top: -10px;
+  left: 0;
+}
+
+.flower::after {
+  top: 0;
+  left: -10px;
+}
+
+.flower1 { top: 20%; left: 10%; animation-delay: 0s; }
+.flower2 { top: 60%; left: 80%; animation-delay: 2s; }
+.flower3 { top: 80%; left: 20%; animation-delay: 4s; }
+
+.petal {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, rgba(255, 182, 193, 0.8), transparent 65%);
+  border-radius: 50%;
+  animation: petalDrop 8s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+.petal1 { top: 25%; left: 35%; animation-delay: 0.5s; }
+.petal2 { top: 40%; left: 55%; animation-delay: 1.3s; }
+.petal3 { top: 70%; left: 25%; animation-delay: 2.2s; }
+
+@keyframes petalDrop {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(30px) rotate(60deg); opacity: 0.8; }
+  100% { transform: translateY(-20px) rotate(120deg); opacity: 0.6; }
+}
+
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}

@@ -208,11 +208,16 @@ function initLotteryMode() {
 }
 
 function init() {
-  if (adminMode) {
-    initAdminMode();
-  } else {
-    initLotteryMode();
-  }
+  // 过场动画结束后显示主内容
+  setTimeout(() => {
+    document.getElementById("introAnimation").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+    if (adminMode) {
+      initAdminMode();
+    } else {
+      initLotteryMode();
+    }
+  }, 12000); // 12秒后显示主内容
 }
 
 init();
