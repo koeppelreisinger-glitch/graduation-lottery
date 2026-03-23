@@ -210,6 +210,11 @@ button.btn:hover {
   width: 90%;
   max-width: 680px;
   margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
 }
 
 .text-1 { animation-delay: 0s; }
