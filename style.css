@@ -208,10 +208,10 @@ button.btn:hover {
   animation: fadeInOut 2s ease-in-out forwards;
 }
 
-.intro-text:nth-child(1) { animation-delay: 0s; }
-.intro-text:nth-child(2) { animation-delay: 3s; }
-.intro-text:nth-child(3) { animation-delay: 6s; }
-.intro-text:nth-child(4) { animation-delay: 9s; }
+.text-1 { animation-delay: 0s; }
+.text-2 { animation-delay: 3s; }
+.text-3 { animation-delay: 6s; }
+.text-4 { animation-delay: 9s; }
 
 @keyframes fadeInOut {
   0% { opacity: 0; transform: translateY(20px); }
